@@ -1,0 +1,58 @@
+/* Targeted refinements to the existing green theme: layout corrections plus the requested
+   table readability. No colour, border, shadow, icon or component changes. */
+
+/* ---------- Tables: readable text everywhere (was 8–11px) ---------- */
+table,.reference-workspace table{font-size:14px}
+th{font-size:13px}
+.table-sort,.reference-workspace .table-sort{font-size:13px}
+td strong{font-size:14px}
+td small{font-size:12px}
+td .btn{font-size:13px}
+td .badge,td .score-tag{font-size:12px}
+.person .avatar{font-size:11px}
+.table-pagination,.table-pagination>span,.table-pagination .btn{font-size:13px}
+/* Dashboard cards hold compact tables; keep them a step smaller so columns still fit. */
+.reference-workspace .team-status-panel th,.reference-workspace .team-status-panel td,.reference-workspace .team-status-panel .table-sort,.reference-workspace .team-status-panel .person strong,
+.reference-workspace .hr-secondary-grid th,.reference-workspace .hr-secondary-grid td,.reference-workspace .hr-secondary-grid .table-sort{font-size:13px}
+.reference-workspace .team-status-panel .person .avatar{font-size:10px}
+
+/* Dashboard tables sit in half-width cards. The global 620px table minimum pushed the last
+   column (Action / Pass Rate) outside the card on laptops, so let these tables fit their card.
+   On phones and small tablets the existing horizontal scroll inside the card remains. */
+@media(min-width:901px){
+  .reference-workspace .dashboard-panel .table-wrap>table{min-width:0}
+  /* Larger table text needs slightly tighter cell sides so wide tables still fit on laptops. */
+  .reference-workspace th,.reference-workspace td{padding-left:10px;padding-right:10px}
+  .reference-workspace .team-status-panel th,.reference-workspace .team-status-panel td{padding-left:6px;padding-right:6px}
+  .reference-workspace .hr-secondary-grid th,.reference-workspace .hr-secondary-grid td{padding-left:4px;padding-right:4px}
+  .reference-workspace .hr-secondary-grid .table-sort{gap:4px}
+}
+
+/* ---------- Import centre: use the page width; keep controls a sensible size ---------- */
+.reference-workspace .import-panel{max-width:none}
+.reference-workspace .import-steps{justify-content:flex-start;gap:40px}
+.reference-workspace #import-form>.field{max-width:420px}
+.reference-workspace #import-preview .table-wrap+.row{margin-top:16px}
+
+/* ---------- Profile menu: readable items (was 11px) ---------- */
+.profile-dropdown{min-width:250px}
+.profile-dropdown .btn{font-size:15px;min-height:44px}
+
+/* ---------- Sidebar ---------- */
+/* Never scroll sideways (the promo artwork is wider than the sidebar by design). */
+.reference-workspace .sidebar{overflow-x:hidden}
+/* Shorter windows: tighten the promo's spacing so the full menu fits without a scrollbar. */
+@media(min-width:901px) and (max-height:1000px){
+  .reference-workspace .sidebar-encouragement,.reference-workspace[data-role] .sidebar-encouragement{min-height:0;padding-top:12px;padding-bottom:16px}
+}
+
+/* ---------- Phones ---------- */
+/* The Finvasia wordmark box matched the wrong aspect ratio, cropping the "F". */
+@media(max-width:700px){
+  .reference-workspace .finvasia-logo-crop{height:27px}
+}
+/* Header gaps added up to more than the screen width, causing a sideways scroll. */
+@media(max-width:480px){
+  .reference-workspace .topbar{gap:6px;padding-left:8px;padding-right:8px}
+  .reference-workspace .top-actions{gap:4px}
+}

@@ -1,0 +1,25 @@
+# Dependencies (the prototype needs none; keep local tooling out of the repo)
+node_modules/
+
+# Local test and browser-automation output
+.playwright-mcp/
+test-results/
+playwright-report/
+coverage/
+*.log
+
+# Packaged copies and exports
+*.zip
+*.inspect.ndjson
+
+# Environment and secrets (never commit)
+.env
+.env.*
+
+# Editor and OS files
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini
