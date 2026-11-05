@@ -1,19 +1,21 @@
 /* Targeted refinements to the existing green theme: layout corrections plus the requested
    table readability. No colour, border, shadow, icon or component changes. */
 
-/* ---------- Tables: readable text everywhere (was 8–11px) ---------- */
-table,.reference-workspace table{font-size:14px}
-th{font-size:13px}
-.table-sort,.reference-workspace .table-sort{font-size:13px}
-td strong{font-size:14px}
-td small{font-size:12px}
-td .btn{font-size:13px}
-td .badge,td .score-tag{font-size:12px}
+/* ---------- Tables: readable size and weight everywhere ---------- */
+/* Segoe UI has no medium weight, so 500 renders as regular. Segoe UI Variable (Windows 11) has one; other systems fall back. */
+table,.reference-workspace table{font-size:15px}
+td{font-family:Inter,'Segoe UI Variable Text','Segoe UI',Arial,'Nirmala UI',sans-serif;font-weight:500;color:#0b152c}
+td:first-child,td strong,.person strong{font-weight:600}
+th,.table-sort,.reference-workspace .table-sort{font-size:14px;font-weight:700;color:#1f2b3d}
+td strong{font-size:15px}
+td small{display:block;font-size:13px;font-weight:400;color:#46546c}
+td .btn{font-size:14px}
+td .badge,td .score-tag{font-size:13px}
 .person .avatar{font-size:11px}
-.table-pagination,.table-pagination>span,.table-pagination .btn{font-size:13px}
+.table-pagination,.table-pagination>span,.table-pagination .btn{font-size:14px}
 /* Dashboard cards hold compact tables; keep them a step smaller so columns still fit. */
-.reference-workspace .team-status-panel th,.reference-workspace .team-status-panel td,.reference-workspace .team-status-panel .table-sort,.reference-workspace .team-status-panel .person strong,
-.reference-workspace .hr-secondary-grid th,.reference-workspace .hr-secondary-grid td,.reference-workspace .hr-secondary-grid .table-sort{font-size:13px}
+.reference-workspace .team-status-panel td,.reference-workspace .team-status-panel .person strong,.reference-workspace .hr-secondary-grid td{font-size:14px}
+.reference-workspace .team-status-panel th,.reference-workspace .team-status-panel .table-sort,.reference-workspace .hr-secondary-grid th,.reference-workspace .hr-secondary-grid .table-sort{font-size:13px}
 .reference-workspace .team-status-panel .person .avatar{font-size:10px}
 
 /* Dashboard tables sit in half-width cards. The global 620px table minimum pushed the last
@@ -55,4 +57,44 @@ td .badge,td .score-tag{font-size:12px}
 @media(max-width:480px){
   .reference-workspace .topbar{gap:6px;padding-left:8px;padding-right:8px}
   .reference-workspace .top-actions{gap:4px}
+}
+
+/* ---------- Fit for the larger text (spacing and wrapping only) ---------- */
+.reference-workspace .level-tile h3{white-space:normal}
+.reference-workspace .level-panel .table-wrap>table{min-width:0}
+/* Laptops: wide tables keep their columns inside the card. */
+@media(min-width:901px) and (max-width:1449px){
+  table,.reference-workspace table{font-size:14px}
+  td strong{font-size:14px}
+  th,.table-sort,.reference-workspace .table-sort{font-size:13px}
+  .reference-workspace .table-sort{gap:4px}
+  .reference-workspace th,.reference-workspace td{padding-left:8px;padding-right:8px}
+  .reference-workspace .team-status-panel th,.reference-workspace .team-status-panel td{padding-left:6px;padding-right:6px}
+  .reference-workspace .hr-secondary-grid th,.reference-workspace .hr-secondary-grid td{padding-left:3px;padding-right:3px}
+}
+/* Short windows: keep the full admin menu visible without a sidebar scrollbar. */
+@media(min-width:901px) and (max-height:960px){
+  .reference-workspace .trophy-orbit{height:52px}
+  .reference-workspace .trophy-orbit>svg{width:48px;height:48px}
+  .reference-workspace .sidebar-encouragement>strong{margin-top:6px}
+  .reference-workspace .sidebar-encouragement>p{margin-bottom:8px}
+}
+/* Phones: larger header text still fits the screen. */
+@media(max-width:480px){
+  .reference-workspace .topbar{gap:4px}
+  .reference-workspace .top-actions{gap:2px}
+  .reference-workspace .language-control{padding-left:6px;padding-right:6px}
+  .reference-workspace .finvasia-logo-crop{width:88px;height:23px}
+}
+
+/* The green score (36px) and its % sign (18px) need more contrast on the pale green circle. */
+.score-circle.positive strong{color:#0a6b40}
+
+/* Sidebar utilities stay on one line each at the larger text size. */
+@media(min-width:901px){
+  .reference-workspace:not(.is-collapsed) .sidebar-tools{gap:0}
+  .reference-workspace:not(.is-collapsed) .sidebar-tools>.btn{white-space:nowrap;gap:3px;padding-left:2px;padding-right:2px}
+}
+@media(min-width:901px) and (max-width:1200px){
+  .reference-workspace:not(.is-collapsed) .sidebar-tools{flex-direction:column;align-items:flex-start}
 }

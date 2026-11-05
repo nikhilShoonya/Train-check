@@ -44,7 +44,7 @@ Progress uses `traincheck-prototype-v1` in LocalStorage. Only the fictional pers
 3. View the big score, explicit Passed/Not Passed badge, first/best score and topic breakdown. Correct responses/explanations appear only if enabled when that attempt started.
 4. Continue to the inline Level 1 feedback form. Rate relevance, trainer, logistics and intent (1–5) and recommendation (0–10); the comment is optional. Required items are validated, the record is saved against employee, training and attempt, and it cannot be submitted twice. Skipping remains possible and is never stored as a zero. After saving, the next due assessment opens, or the dashboard if none remain.
 5. If Not Passed, open refresher guidance/material and acknowledge it. Sign out/in for an eligible retake. Three failures create Needs Re-training and local notification records; they do not create an indefinite lock.
-6. Once the queue is clear, use Training history for all attempts and printable sample certificates. Certificates are not official Finvasia awards.
+6. Once the queue is clear, use Training history for all attempts and printable sample certificates. Certificates are not official Finvasia awards. Every course uses the same design (`assets/certificate-template.png`, styled by `css/certificate.css`); only the employee name, course name and date of the first passed attempt change.
 7. My behaviour follow-ups shows configured cycles. When a task is due, rate each competency and supply an example. L&D can advance the demo date for testing.
 8. An optional pre-test appears in Training history only for enabled, active, assigned training before completion. It records a baseline and does not satisfy the post-training gate.
 
@@ -103,7 +103,7 @@ Run `node TrainCheck-Prototype/serve.cjs`, open http://127.0.0.1:4173 and sign i
 
 ### Full question imports
 
-In **Import centre**, use **Download CSV template** or **Download Excel template** to get an importable file with the correct headers and a sample row.
+In **Import centre**, use **Download CSV template** or **Download Excel template** to get an importable file with the correct headers and a sample row. The [`sample/`](./sample/) folder has valid CSV and Excel test files for question and completion imports.
 
 - Read the first worksheet only; use plain values, not formulas. CSV must be UTF-8.
 - Headers: `id, training, topic, competency, type, question, option_a, option_b, option_c, option_d, options_extra, correct, explanation, difficulty, marks, level, language, active`.
@@ -164,7 +164,7 @@ node --check TrainCheck-Prototype/serve.cjs
 node --test TrainCheck-Prototype/tests/domain.test.cjs TrainCheck-Prototype/tests/evaluation.test.cjs TrainCheck-Prototype/tests/ui.test.cjs TrainCheck-Prototype/tests/secure-exam.test.cjs
 ```
 
-**104 automated tests pass** (domain, evaluation, UI and secure-assessment suites) using Node’s built-in test runner with isolated domain/render/action-handler harnesses.
+**111 automated tests pass** (domain, evaluation, UI and secure-assessment suites) using Node’s built-in test runner with isolated domain/render/action-handler harnesses.
 
 Browser checks were run in Chromium: every role’s pages at 1885, 1440, 1280, 1024, 768 and 390 px; the full secure assessment journey; and before/after pixel comparison for the layout refinements and code cleanup. **Not yet verified:** Firefox and Safari, keyboard-only and screen-reader use, 200% zoom and print/PDF output. WCAG AA is a target, not a conformance claim.
 

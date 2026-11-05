@@ -2,6 +2,7 @@
 node_modules/
 
 # Local test and browser-automation output
+.qa/
 .playwright-mcp/
 test-results/
 playwright-report/
@@ -15,6 +16,28 @@ coverage/
 # Environment and secrets (never commit)
 .env
 .env.*
+!.env.example
+
+# Project documents kept local, not pushed (the leading / matches this folder only)
+/DECISIONS/
+/design-system/
+/docs/
+/AGENTS.md
+/PROJECT_CONTEXT.md
+/README.md
+/TrainCheck-Prototype.zip
+
+# AI coding agent files
+.claude/
+.codex/
+
+# Temporary and backup files
+*.tmp
+*.bak
+*.orig
+
+# Office lock files (created while a sample workbook is open in Excel)
+~$*
 
 # Editor and OS files
 .vscode/
@@ -23,3 +46,6 @@ coverage/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+
+
