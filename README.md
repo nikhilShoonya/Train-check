@@ -20,6 +20,10 @@ Use **clear@traincheck.demo** to open the employee dashboard without a due gate.
 
 Manager, L&D and HR retain their separate reference dashboard layouts with the new green theme. Login uses the latest supplied office/foliage artwork and horizontal Kirkpatrick features. Branding and facade use viewport crops of the new reference; existing persona portraits remain from the earlier supplied images. Live metrics remain actual demo data. Google/Microsoft buttons explain the unconnected SSO dependency. Remember my demo email stores only an email preference. HR's Download Centre lists that user's local CSV/XLSX reports and can regenerate them with current data and permissions.
 
+## Back arrow
+
+A back arrow at the top of the page returns to the page you were on before. It is hidden on your first page after sign-in, where there is nothing to go back to, and from the moment a test starts until it is submitted. After submitting, it leads to your workspace rather than back into the test. The page trail is kept in memory, so after a browser refresh the arrow returns to your workspace. It cannot open the workspace past the assessment gate.
+
 ## Demo accounts
 
 All accounts use **TrainCheck123!**. These are public fictional selectors, not real credentials.
@@ -164,7 +168,7 @@ node --check TrainCheck-Prototype/serve.cjs
 node --test TrainCheck-Prototype/tests/domain.test.cjs TrainCheck-Prototype/tests/evaluation.test.cjs TrainCheck-Prototype/tests/ui.test.cjs TrainCheck-Prototype/tests/secure-exam.test.cjs
 ```
 
-**111 automated tests pass** (domain, evaluation, UI and secure-assessment suites) using Node’s built-in test runner with isolated domain/render/action-handler harnesses.
+**116 automated tests pass** (domain, evaluation, UI and secure-assessment suites) using Node’s built-in test runner with isolated domain/render/action-handler harnesses.
 
 Browser checks were run in Chromium: every role’s pages at 1885, 1440, 1280, 1024, 768 and 390 px; the full secure assessment journey; and before/after pixel comparison for the layout refinements and code cleanup. **Not yet verified:** Firefox and Safari, keyboard-only and screen-reader use, 200% zoom and print/PDF output. WCAG AA is a target, not a conformance claim.
 

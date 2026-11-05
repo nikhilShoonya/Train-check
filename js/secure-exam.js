@@ -362,7 +362,7 @@
     if(doc()?.querySelector('#dialog')?.open)T.closeDialog();T.view.result=null;T.view.question=0;T.go(T.queue(id).length?'gate':'overview');T.toast('Demo assessment records restored for this employee.');
   };
   const logout=A.logout;A.logout=()=>{T.disarmExam();T.examEnv.exitFullscreen();Object.assign(session,{checks:null,ack:false,fullscreenError:'',ready:null});logout();};
-  T.gateActions=new Set(['exam-recheck','exam-continue','exam-fullscreen','exam-return-fullscreen','exam-begin','exam-goto','exam-review','exam-mark','exam-clear','exam-end','exam-submit','exam-demo-time','exam-reset','exam-confirm-reset']);
+  T.gateActions=new Set(['go-back','exam-recheck','exam-continue','exam-fullscreen','exam-return-fullscreen','exam-begin','exam-goto','exam-review','exam-mark','exam-clear','exam-end','exam-submit','exam-demo-time','exam-reset','exam-confirm-reset']);
 
   // Answer selection updates the page in place so keyboard focus stays on the chosen option.
   const refreshQuestion=(a,q)=>{

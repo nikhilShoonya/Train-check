@@ -98,3 +98,8 @@ td .badge,td .score-tag{font-size:13px}
 @media(min-width:901px) and (max-width:1200px){
   .reference-workspace:not(.is-collapsed) .sidebar-tools{flex-direction:column;align-items:flex-start}
 }
+
+/* Back arrow above page content. */
+.btn.page-back{display:flex;width:44px;height:44px;min-height:44px;padding:0;margin:14px 0 10px}
+.btn.page-back svg{width:20px;height:20px}
+.btn.page-back+.page-heading{padding-top:6px}
